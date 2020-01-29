@@ -26,6 +26,8 @@ function findKeyAndValue(theObject,keytobeFind,valuetomatch){
 console.log(findKeyAndValue(json,'id','1'));
 
 -----------------------------------------------------------------------------------------
+// javascript return Largest + or - number from given number ES6
+
 function createLargestNumberByGivenNumber(number,givenNum){
       number = `${number}`.split('');
       let lesserNum = null;
