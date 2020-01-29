@@ -25,3 +25,24 @@ function findKeyAndValue(theObject,keytobeFind,valuetomatch){
 }
 console.log(findKeyAndValue(json,'id','1'));
 
+-----------------------------------------------------------------------------------------
+function createLargestNumberByGivenNumber(number,givenNum){
+      number = `${number}`.split('');
+      let lesserNum = null;
+       lesserNum =  parseInt(number) > 0 ? number.find(num => parseInt(num) < parseInt(givenNum)) 
+                     : number.find(num => parseInt(num) > parseInt(givenNum));
+      let lesserNumIndex = number.indexOf(lesserNum);
+      if(lesserNumIndex != -1){
+          number.splice(lesserNumIndex, 0, parseInt(givenNum));
+          number = number.join('');
+      }else{
+        number.splice(number.length, 0, parseInt(givenNum));
+        number = number.join('');
+      }
+      return  parseInt(number);
+}
+
+console.log(createLargestNumberByGivenNumber(6832,5));
+console.log(createLargestNumberByGivenNumber(123,5));
+console.log(createLargestNumberByGivenNumber(-6832,7));
+console.log(createLargestNumberByGivenNumber(-9999,5));
