@@ -1,0 +1,5 @@
+// javascript return unique array of objects by key (age) ES6
+array.filter((value, index, self) => self.map(x => x.age).indexOf(value.age) == index);
+
+setInterval(): executes a function, over and over again, at specified time intervals
+setTimeout() : executes a function, once, after waiting a specified number of milliseconds
