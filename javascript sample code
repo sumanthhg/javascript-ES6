@@ -1,5 +1,27 @@
 // javascript return unique array of objects by key (age) ES6
 array.filter((value, index, self) => self.map(x => x.age).indexOf(value.age) == index);
-
+--------------------------------------------------------------------------------------------
 setInterval(): executes a function, over and over again, at specified time intervals
 setTimeout() : executes a function, once, after waiting a specified number of milliseconds
+--------------------------------------------------------------------------------------------------------
+// javascript return object from deep nested array of object ES6
+
+var json = [{"title":"some title","channel_id":"123we","options":[{"channel_id":"abc","image":"http://asdasd.com/all-inclusive-block-img.jpg","title":"All-Inclusive","options":[{"channel_id":"dsa2","title":"Some Recommends","options":[{"image":"http://www.asdasd.com","title":"Sandals","id":1}]}]}]}];
+
+function findKeyAndValue(theObject,keytobeFind,valuetomatch){
+  let result = null;
+    if(theObject.hasOwnProperty(keytobeFind) && theObject[keytobeFind] == valuetomatch){
+        return theObject;
+    }
+        Object.keys(theObject).map((key,index) =>{
+          if(theObject[key] instanceof Object || theObject[key] instanceof Array){
+            var o = findKeyAndValue(theObject[key],keytobeFind,valuetomatch);
+            if(o && o != null){
+              result = o;
+            }
+        }
+        })
+    return result;
+}
+console.log(findKeyAndValue(json,'id','1'));
+
