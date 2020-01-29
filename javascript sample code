@@ -48,3 +48,20 @@ console.log(createLargestNumberByGivenNumber(6832,5));
 console.log(createLargestNumberByGivenNumber(123,5));
 console.log(createLargestNumberByGivenNumber(-6832,7));
 console.log(createLargestNumberByGivenNumber(-9999,5));
+
+--------------------------------------------------------------------------------------------------
+// javascript return chunk of array from given number chunkSize ES6
+
+Object.defineProperty(Array.prototype, 'arrayIntoChunksBySize', {
+  value: function(chunkSize) {
+    let array = this;
+    return [].concat.apply([],
+      array.map((elem, i) => {
+        return i % chunkSize ? [] : [array.slice(i, i + chunkSize)];
+      })
+    );
+  }
+});
+
+console.log([1, 2, 3, 4, 5, 6, 7, 8, 9].arrayIntoChunksBySize(3));
+
