@@ -17,9 +17,9 @@
         }
       }
 
-  let person = new Person('Sumanth','H G',9663628248);
-      console.log(person.getFullName());
-	    console.log(person.getPersonDetails());
+  let person = new Person('Sumanth','H G',96636);
+  console.log(person.getFullName());
+  console.log(person.getPersonDetails());
       
 // creating javascript class example ES6
   
@@ -41,6 +41,55 @@
         }
 	}
 }
-let person = new Person('Sumanth','H G',9663628248);
-    console.log(person.FullName());
-	console.log(person.PersonDetails());
+let person = new Person('Sumanth','H G',966362);
+console.log(person.FullName());
+console.log(person.PersonDetails());
+
+----------------------------------------------------------------------------------------------
+// creating javascript class  example ES6
+
+class Counter {
+  constructor () {
+    this.count = 0
+  }
+
+  increment () {
+    this.count++
+  }
+
+  decrement () {
+    this.count--
+  }
+
+  static isNil (counter) {
+      return counter.count === 0
+  }
+}
+
+let counter = new Counter()
+console.log(Counter.isNil(counter));  // true
+console.log(counter.increment());     // 1
+console.log(counter.increment());     // 2
+console.log(counter.decrement());     // 1
+console.log(Counter.isNil(counter));  // false
+
+-------------------------------------------------------------------------------
+// creating javascript extends class example ES6
+
+class Temperature extends Counter {
+    constructor () {
+        // The super keyword identifies our base class "Counter".
+        super()
+    }
+
+    decrement () {
+        if(this.count > 0) {
+            super.decrement()
+        }
+    }
+}
+
+let termo = new Temperature()
+termo.decrement()   // 0 // no decrement because "count" was already 0
+termo.increment()   // 1
+termo.decrement()   // 0
